@@ -1,12 +1,13 @@
-const MAX_ITERATIONS = 80;
-const MAX_HEIGHT = 400;
-const MAX_WIDTH = 600;
-const ZOOM = 1 / 1024;
-const OFFSET = -0.27;
-const RE_START = -2;
-const RE_END = 1;
-const IM_START = 1;
-const IM_END = -1;
+const MAX_ITERATIONS = 200;
+const MAX_HEIGHT = 800;
+const MAX_WIDTH = 1200;
+const ZOOM = 1 / 4096;
+const RE_START = -2 * ZOOM;
+const RE_END = 1 * ZOOM;
+const IM_START = 1 * ZOOM;
+const IM_END = -1 * ZOOM;
+const OFFSET_RE = -0.743643887037151;
+const OFFSET_IM = 0.13182590420533;
 
 const colors = [
   { r: 66, g: 30, b: 15 },
@@ -67,9 +68,11 @@ function draw_mandelbrot() {
 
 function getComplexNumber(coord_x, coord_y) {
   return {
-    re: RE_START + ((RE_END - RE_START) / MAX_WIDTH) * coord_x,
-    im: IM_START - ((IM_START - IM_END) / MAX_HEIGHT) * coord_y,
+    re: RE_START + ((RE_END - RE_START) / MAX_WIDTH) * coord_x + OFFSET_RE,
+    im: IM_START - ((IM_START - IM_END) / MAX_HEIGHT) * coord_y + OFFSET_IM,
   };
 }
+
+function main() {}
 
 window.onload = draw_mandelbrot;

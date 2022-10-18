@@ -10,11 +10,15 @@
   </head>
   <body>
     <h1 class="heading">Mandelbrot.js</h1>
-    <canvas
-      id="canvas"
-      width="600"
-      height="400"
-      style="border: 1px solid #000000"
-    ></canvas>
+    <form>
+      <label for="coord_x">X_Coord:</label>
+      <input id="coord_x" type="text" />
+      <label for="coord_y">Y_Coord:</label>
+      <input id="coord_y" type="text" />
+      <label for="zoom">Zoom:</label>
+      <input id="zoom" type="text" />
+      <button id="calculate">Calc!</button>
+    </form>
+    <canvas id="canvas" style="border: 1px solid #000000"></canvas>
   </body>
 </html>
